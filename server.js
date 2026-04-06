@@ -3,12 +3,14 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { db, User, Task } = require('./database/setup');
 require('dotenv').config();
+const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 
 // JWT Authentication Middleware
 function requireAuth(req, res, next) {
