@@ -349,3 +349,12 @@ app.listen(PORT, () => {
     console.log(`Environment: ${process.env.NODE_ENV}`);
     console.log(`Health check: http://localhost:${PORT}/health`);
 });
+
+app.get('/api/info', (req, res) => {
+    res.json({
+        name: 'Task Management API',
+        version: '1.0.0',
+        author: 'Trung',
+        status: 'deployed'
+    });
+});
